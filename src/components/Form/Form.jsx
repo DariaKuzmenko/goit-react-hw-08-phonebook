@@ -13,9 +13,7 @@ export class Form extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.onSubmit(this.state);
-
     this.reset();
   };
 
@@ -26,8 +24,8 @@ export class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="">
-          Name{' '}
+        <label>
+          Name
           <input
             type="text"
             name="name"
@@ -38,7 +36,7 @@ export class Form extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor="">
+        <label>
           Number
           <input
             type="tel"
