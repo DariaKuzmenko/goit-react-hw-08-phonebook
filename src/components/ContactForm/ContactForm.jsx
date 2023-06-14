@@ -1,6 +1,7 @@
 import { Component } from 'react';
+import { Form, FormLabel, FormInput, FormBtn } from './ContactForm.styled';
 
-export class Form extends Component {
+export class ContactForm extends Component {
   state = {
     name: '',
     number: '',
@@ -23,10 +24,10 @@ export class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <Form onSubmit={this.handleSubmit}>
+        <FormLabel>
           Name
-          <input
+          <FormInput
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -35,10 +36,10 @@ export class Form extends Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-        </label>
-        <label>
+        </FormLabel>
+        <FormLabel>
           Number
-          <input
+          <FormInput
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -47,9 +48,9 @@ export class Form extends Component {
             value={this.state.number}
             onChange={this.handleChange}
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </FormLabel>
+        <FormBtn type="submit">Add contact</FormBtn>
+      </Form>
     );
   }
 }
