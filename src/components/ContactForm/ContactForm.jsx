@@ -6,7 +6,6 @@ export const ContactForm = ({ onSubmit }) => {
   const [number, setNumber] = useState('');
 
   const handleChangeName = ({ target: { value } }) => {
-    console.log(value);
     setName(value);
   };
 
