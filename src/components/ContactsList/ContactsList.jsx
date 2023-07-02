@@ -1,3 +1,4 @@
+import { deleteContact, fetchContacts } from 'redux/operations';
 import {
   ContactsEl,
   List,
@@ -6,12 +7,16 @@ import {
 } from './ContactsList.styled';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/contactSlice';
+import { useEffect } from 'react';
 
 export const ContactsList = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.filter.filter);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const onFilterContacts = () => {
     return contacts.filter(contact =>
