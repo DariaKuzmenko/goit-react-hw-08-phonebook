@@ -1,5 +1,8 @@
+import axios from 'axios';
 import { createSlice } from '@reduxjs/toolkit';
 import { addContacts, deleteContact, fetchContacts } from './operations';
+
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 const handlePending = state => {
   state.isLoading = true;
