@@ -12,7 +12,7 @@ const clearAuthHeader = () => {
 };
 
 export const register = createAsyncThunk(
-  'auth/registerUser',
+  'auth/register',
   async (user, { rejectWithValue }) => {
     try {
       const result = await axios.post('/users/signup', user);
@@ -25,7 +25,7 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  'auth/loginUser',
+  'auth/login',
   async (user, { rejectWithValue }) => {
     try {
       const result = await axios.post('/users/login', user);
@@ -39,7 +39,7 @@ export const login = createAsyncThunk(
 );
 
 export const logout = createAsyncThunk(
-  'auth/logoutUser',
+  'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
       const result = await axios.post('/users/logout');

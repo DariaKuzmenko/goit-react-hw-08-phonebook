@@ -20,7 +20,7 @@ import { authReducer } from './authSlice';
 // });
 
 const persistConfig = {
-  key: 'token',
+  key: 'auth',
   storage,
   whitelist: ['token'],
 };

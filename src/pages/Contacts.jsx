@@ -15,7 +15,7 @@ export const Contacts = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  return isAuthorized ? (
+  return (
     <ContactsSection>
       <Title>Phonebook</Title>
       <ContactForm />
@@ -23,7 +23,5 @@ export const Contacts = () => {
       <Filter />
       <ContactsList />
     </ContactsSection>
-  ) : (
-    <h2>Sign in please!</h2>
   );
 };
