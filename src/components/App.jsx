@@ -1,15 +1,15 @@
-import { refresh } from 'redux/auth';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
 import { PrivateRoute } from './Routes/PrivateRoute';
-import { selectIsRefreshing } from 'redux/selectors';
 import { Layout } from './Layout/Layout';
 import { Home } from 'pages/Home';
 import { Register } from 'pages/Register';
 import { Login } from 'pages/Login';
 import { Contacts } from 'pages/Contacts';
+import { selectIsRefreshing } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { refresh } from 'redux/auth';
+import { useEffect } from 'react';
 
 // const Home = lazy(() => import('../pages/Home'));
 // const Login = lazy(() => import('../pages/Login'));
