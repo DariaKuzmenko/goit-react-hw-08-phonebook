@@ -1,21 +1,22 @@
-import { useAuth } from 'hooks/useAuth';
-import { useDispatch } from 'react-redux';
-import { logout } from 'redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from 'redux/auth';
+import { selectUser } from 'redux/selectors';
+import { MenuBtn, MenuWrapper } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth;
+  const user = useSelector(selectUser);
 
   const handleButtonClick = () => {
-    dispatch(logout());
+    dispatch(logoutUser());
   };
 
   return (
-    <div>
+    <MenuWrapper>
       <p>Welcom, {user}</p>
-      <button type="button" onClick={handleButtonClick}>
+      <MenuBtn type="button" onClick={handleButtonClick}>
         Logout
-      </button>
-    </div>
+      </MenuBtn>
+    </MenuWrapper>
   );
 };

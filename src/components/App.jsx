@@ -8,7 +8,7 @@ import { Login } from 'pages/Login';
 import { Contacts } from 'pages/Contacts';
 import { selectIsRefreshing } from 'redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { refresh } from 'redux/auth';
+import { refreshUser } from 'redux/auth';
 import { useEffect } from 'react';
 
 // const Home = lazy(() => import('../pages/Home'));
@@ -21,7 +21,7 @@ export const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(refresh());
+    dispatch(refreshUser());
   }, [dispatch]);
 
   return (
@@ -44,7 +44,7 @@ export const App = () => {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute redirectTo="/login" element={<Contacts />} />
+              <PrivateRoute redirectTo="/contacts" element={<Contacts />} />
             }
           ></Route>
         </Route>

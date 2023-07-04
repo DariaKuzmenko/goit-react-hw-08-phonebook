@@ -1,10 +1,15 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { selectIsAuthorized } from 'redux/selectors';
+import { Navigate } from './Navigation.styled';
 
 export const Navigation = () => {
+  const isAutorizated = useSelector(selectIsAuthorized);
+
   return (
-    <nav>
+    <Navigate>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/contacts">Contacts</NavLink>
-    </nav>
+      {isAutorizated && <NavLink to="/contacts">Contacts</NavLink>}
+    </Navigate>
   );
 };

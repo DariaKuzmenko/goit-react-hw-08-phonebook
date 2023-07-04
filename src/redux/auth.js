@@ -3,6 +3,76 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
+// const setAuthHeader = token => {
+//   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+// };
+
+// const clearAuthHeader = () => {
+//   axios.defaults.headers.common.Authorization = '';
+// };
+
+// export const registerUser = createAsyncThunk(
+//   'auth/registerUser',
+//   async (user, { rejectWithValue }) => {
+//     try {
+//       const { data } = await axios.post('/users/signup', user);
+//       setAuthHeader(data.token);
+
+//       return data;
+//     } catch (e) {
+//       return rejectWithValue(e.message);
+//     }
+//   }
+// );
+
+// export const loginUser = createAsyncThunk(
+//   'auth/loginUser',
+//   async (user, { rejectWithValue }) => {
+//     try {
+//       const { data } = await axios.post('/users/login', user);
+//       setAuthHeader(data.token);
+
+//       return data;
+//     } catch (e) {
+//       return rejectWithValue(e.message);
+//     }
+//   }
+// );
+
+// export const logoutUser = createAsyncThunk(
+//   'auth/logoutUser',
+//   async (_, { rejectWithValue }) => {
+//     try {
+//       const { data } = await axios.post('/users/logout');
+//       clearAuthHeader();
+
+//       return data;
+//     } catch (e) {
+//       return rejectWithValue(e.message);
+//     }
+//   }
+// );
+
+// export const refreshUser = createAsyncThunk(
+//   'auth/refreshUser',
+//   async (_, thunkAPI) => {
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
+
+//     if (persistedToken === null) {
+//       return thunkAPI.rejectWithValue('Unable to fetch user');
+//     }
+
+//     setAuthHeader(persistedToken);
+//     try {
+//       const { data } = await axios.get('/users/current');
+//       return data;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
+
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -11,7 +81,7 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const register = createAsyncThunk(
+export const registerUser = createAsyncThunk(
   'auth/register',
   async (user, { rejectWithValue }) => {
     try {
@@ -24,7 +94,7 @@ export const register = createAsyncThunk(
   }
 );
 
-export const login = createAsyncThunk(
+export const loginUser = createAsyncThunk(
   'auth/login',
   async (user, { rejectWithValue }) => {
     try {
@@ -38,7 +108,7 @@ export const login = createAsyncThunk(
   }
 );
 
-export const logout = createAsyncThunk(
+export const logoutUser = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
@@ -52,7 +122,7 @@ export const logout = createAsyncThunk(
   }
 );
 
-export const refresh = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   'auth/refreshUser',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
